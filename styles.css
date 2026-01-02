@@ -1,0 +1,7 @@
+#grid .card {
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+#grid .card:hover {
+  transform: translateY(-1px);
+}

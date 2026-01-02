@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipt Images</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <header class="border-b border-slate-800 bg-slate-950/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-lg bg-slate-800" aria-hidden="true"></div>
+          <div>
+            <h1 class="text-lg font-semibold leading-tight">Receipt Images</h1>
+            <p class="text-sm text-slate-400">Click a thumbnail to preview and download.</p>
+          </div>
+        </div>
+
+        <button
+          id="refresh"
+          class="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800"
+          type="button"
+        >
+          Reload
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-6">
+      <section class="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-base font-semibold">Gallery</h2>
+            <p id="status" class="text-sm text-slate-400">Loading images…</p>
+          </div>
+          <div class="text-sm text-slate-400">
+            Put images in <span class="font-mono text-slate-300">/images</span>.
+          </div>
+        </div>
+
+        <div id="grid" class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4"></div>
+      </section>
+    </main>
+
+    <div
+      id="viewer"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+    >
+      <div class="w-full max-w-5xl overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+          <div class="min-w-0">
+            <div id="viewerTitle" class="truncate text-sm font-medium text-slate-200"></div>
+            <div id="viewerMeta" class="text-xs text-slate-400"></div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a
+              id="downloadLink"
+              class="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800"
+              href="#"
+              download
+            >
+              Download
+            </a>
+            <button
+              id="closeViewer"
+              class="rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800"
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
+        <div class="relative bg-black">
+          <img id="viewerImg" alt="" class="mx-auto max-h-[75vh] w-auto object-contain" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./images/manifest.js"></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
