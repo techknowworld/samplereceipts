@@ -2,7 +2,6 @@
 // Used when opening index.html directly via file:// (no server).
 window.__IMAGE_MANIFEST_FILES__ = 
 [
-    "sample_ (1).jpg",
     "sample_ (2).jpg",
     "sample_ (3).jpg",
     "sample_ (4).jpg",
